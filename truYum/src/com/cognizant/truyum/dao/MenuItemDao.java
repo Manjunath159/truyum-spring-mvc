@@ -1,19 +1,21 @@
 package com.cognizant.truyum.dao;
 
+import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 import com.cognizant.truyum.model.MenuItem;
 
 public interface MenuItemDao {
-	List<MenuItem> getMenuItemListAdmin();
+	List<MenuItem> getMenuItemListAdmin() throws ClassNotFoundException, IOException, SQLException;
 
-	List<MenuItem> getMenuItemListCustomer();
+	List<MenuItem> getMenuItemListCustomer() throws IOException;
 
 	static void modifyMenuItem(MenuItem menuItem) {
 		// TODO Auto-generated method stub
 
 	}
 
-	MenuItem getMenuItem(long menuItemId);
+	MenuItem getMenuItem(long menuItemId) throws IOException;
 
 }

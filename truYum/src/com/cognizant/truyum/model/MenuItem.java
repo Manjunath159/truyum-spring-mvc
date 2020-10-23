@@ -1,45 +1,38 @@
 package com.cognizant.truyum.model;
 
-import java.sql.Date;
+
+import java.util.Date;
 
 public class MenuItem {
 	private long id;
 	private String name;
-	private boolean active;
+
 	private float price;
+	private boolean active;
 	private Date dateOfLaunch;
 	private String category;
 	private boolean freeDelivery;
 
+	
+
+	
+
 	/**
 	 * @param id
 	 * @param name
 	 * @param price
-	 * @param dateOfLaunch
-	 * @param category
-	 * @param freeDelivery
-	 */
-
-	public MenuItem(int i, String string, float f, boolean b, java.util.Date convertToDate, String string2, boolean c) {
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @param id
-	 * @param name
 	 * @param active
-	 * @param price
 	 * @param dateOfLaunch
 	 * @param category
 	 * @param freeDelivery
 	 */
-	public MenuItem(long id, String name, boolean active, float price, Date dateOfLaunch, String category,
+	public MenuItem(long id, String name, float price, boolean active, Date dateOfLaunch, String category,
 			boolean freeDelivery) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.active = active;
 		this.price = price;
+		this.active = active;
 		this.dateOfLaunch = dateOfLaunch;
 		this.category = category;
 		this.freeDelivery = freeDelivery;

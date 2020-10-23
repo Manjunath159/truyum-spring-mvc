@@ -1,12 +1,13 @@
 package com.cognizant.truyum.dao;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.List;
 
 import com.cognizant.truyum.model.MenuItem;
 
 public class CartDaoCollectionImplTest {
-	void main(String[] args) throws ParseException, CartEmptyException {
+	void main(String[] args) throws ParseException, CartEmptyException, IOException {
 		testAddCartItem();
 		testRemoveCartItem();
 
@@ -19,7 +20,7 @@ public class CartDaoCollectionImplTest {
 
 	}
 
-	void testAddCartItem() throws ParseException, CartEmptyException {
+	void testAddCartItem() throws ParseException, CartEmptyException, IOException {
 		// TODO Auto-generated method stub
 		CartDao cartDao = new CartDaoCollectionImpl();
 		cartDao.addCartItem(1, 5);
