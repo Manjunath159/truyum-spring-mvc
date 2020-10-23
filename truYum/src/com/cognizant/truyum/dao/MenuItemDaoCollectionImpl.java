@@ -48,7 +48,7 @@ public class MenuItemDaoCollectionImpl implements MenuItemDao {
 				if (obj.isActive() && currDate.after(obj.getDateOfLaunch())) {
 					arr.add(obj);
 				}
-				
+
 			}
 			return arr;
 
@@ -59,15 +59,33 @@ public class MenuItemDaoCollectionImpl implements MenuItemDao {
 		return null;
 	}
 
-	@Override
 	public void modifyMenuItem(MenuItem menuItem) {
 		// TODO Auto-generated method stub
+		for (MenuItem obj : menuItemList) {
+			if (menuItem.equals(obj)) {
+				obj.setId(menuItem.getId());
+				obj.setName(menuItem.getName());
+				obj.setPrice(menuItem.getPrice());
+				obj.setActive(menuItem.isActive());
+				obj.setDateOfLaunch(menuItem.getDateOfLaunch());
+				obj.setCategory(menuItem.getCategory());
+				obj.setFreeDelivery(menuItem.isFreeDelivery());
+//				
+
+			}
+		}
+		menuItemList.add(menuItem);
 
 	}
 
-	@Override
 	public MenuItem getMenuItem(long menuItemId) {
 		// TODO Auto-generated method stub
+		for (MenuItem obj : menuItemList) {
+			if (obj.getId() == menuItemId) {
+				return obj;
+			}
+		}
 		return null;
+
 	}
 }

@@ -10,7 +10,7 @@ public class MenuItem {
 	private Date dateOfLaunch;
 	private String category;
 	private boolean freeDelivery;
-	
+
 	/**
 	 * @param id
 	 * @param name
@@ -19,15 +19,10 @@ public class MenuItem {
 	 * @param category
 	 * @param freeDelivery
 	 */
-	
-	
-	
 
 	public MenuItem(int i, String string, float f, boolean b, java.util.Date convertToDate, String string2, boolean c) {
 		// TODO Auto-generated constructor stub
 	}
-
-
 
 	/**
 	 * @param id
@@ -50,61 +45,68 @@ public class MenuItem {
 		this.freeDelivery = freeDelivery;
 	}
 
-
-
 	public long getId() {
 		return id;
 	}
+
 	public void setId(long id) {
 		this.id = id;
 	}
+
 	public boolean isActive() {
 		return active;
 	}
-
-
 
 	public void setActive(boolean active) {
 		this.active = active;
 	}
 
-
-
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public float getPrice() {
 		return price;
 	}
+
 	public void setPrice(float price) {
 		this.price = price;
 	}
+
 	public Date getDateOfLaunch() {
 		return dateOfLaunch;
 	}
+
 	public void setDateOfLaunch(Date dateOfLaunch) {
 		this.dateOfLaunch = dateOfLaunch;
 	}
+
 	public String getCategory() {
 		return category;
 	}
+
 	public void setCategory(String category) {
 		this.category = category;
 	}
+
 	public boolean isFreeDelivery() {
 		return freeDelivery;
 	}
+
 	public void setFreeDelivery(boolean freeDelivery) {
 		this.freeDelivery = freeDelivery;
 	}
+
 	@Override
 	public String toString() {
 		return "MenuItem [id=" + id + ", name=" + name + ", price=" + price + ", dateOfLaunch=" + dateOfLaunch
 				+ ", category=" + category + ", freeDelivery=" + freeDelivery + "]";
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -112,6 +114,7 @@ public class MenuItem {
 		result = prime * result + (int) (id ^ (id >>> 32));
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -125,9 +128,5 @@ public class MenuItem {
 			return false;
 		return true;
 	}
-	
-	
-	
-	
 
 }
