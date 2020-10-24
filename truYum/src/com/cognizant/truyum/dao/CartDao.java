@@ -9,9 +9,11 @@ import com.cognizant.truyum.model.MenuItem;
 public interface CartDao {
 	void addCartItem(long userId, long menuItemId) throws ParseException, IOException;
 
-	List<MenuItem> getAllCartitems(long userId) throws CartEmptyException;
+	List<MenuItem> getAllCartItems(long userId) throws CartEmptyException, IOException;
 
-	void removeCartItem(long userId, long menuItemId);
+	void removeCartItem(long userId, long menuItemId) throws IOException;
 
-	List<MenuItem> getAllCartItems(int i);
+	
+
+	
 }

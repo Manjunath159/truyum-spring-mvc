@@ -37,7 +37,7 @@ public class CartDaoCollectionImpl implements CartDao {
 	}
 
 	@Override
-	public List<MenuItem> getAllCartitems(long userId) throws CartEmptyException {
+	public List<MenuItem> getAllCartItems(long userId) throws CartEmptyException {
 		// TODO Auto-generated method stub
 		Cart obj = userCarts.get(userId);
 		List<MenuItem> lst = obj.getMenuItemList();
@@ -51,8 +51,10 @@ public class CartDaoCollectionImpl implements CartDao {
 			obj.setTotal(total);
 		}
 		return lst;
-
 	}
+
+	
+
 
 	public void removeCartItem(long userId, long menuItemId) {
 		// TODO Auto-generated method stub
@@ -64,13 +66,11 @@ public class CartDaoCollectionImpl implements CartDao {
 			}
 
 		}
+	}}
+		
+	
 
-	}
 
-	@Override
-	public List<MenuItem> getAllCartItems(int i) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-}
+	
+	

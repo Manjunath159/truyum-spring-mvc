@@ -13,7 +13,7 @@ public class CartDaoCollectionImplTest {
 
 	}
 
-	void testRemoveCartItem() throws CartEmptyException {
+	void testRemoveCartItem() throws CartEmptyException, IOException {
 		CartDao cartDao = new CartDaoCollectionImpl();
 		cartDao.removeCartItem(1, 5);
 		cartDao.getAllCartItems(1);
@@ -24,12 +24,12 @@ public class CartDaoCollectionImplTest {
 		// TODO Auto-generated method stub
 		CartDao cartDao = new CartDaoCollectionImpl();
 		cartDao.addCartItem(1, 5);
-		List<MenuItem> lst = cartDao.getAllCartitems(1);
+		List<MenuItem> lst = cartDao.getAllCartItems(1);
 		lst.forEach(System.out::println);
 
 	}
 
-	void testGetAllCartItems() {
+	void testGetAllCartItems() throws CartEmptyException, IOException {
 		CartDao cartDao = new CartDaoCollectionImpl();
 		List<MenuItem> lst = cartDao.getAllCartItems(1);
 		lst.forEach(System.out::println);
