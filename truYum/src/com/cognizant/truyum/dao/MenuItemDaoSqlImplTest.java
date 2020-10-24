@@ -37,10 +37,7 @@ public class MenuItemDaoSqlImplTest {
 	
 	public static void testGetMenuItem() throws IOException {
 		MenuItem menuItem = obj.getMenuItem(2);
-		if(menuItem == null) {
-			System.out.println("The Item does not exist in our database");
-			return;
-		}
+		
 		System.out.println(menuItem);
 	}
 }
