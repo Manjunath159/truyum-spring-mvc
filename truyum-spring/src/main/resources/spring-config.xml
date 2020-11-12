@@ -8,7 +8,7 @@
 	http://www.springframework.org/schema/beans/spring-beans.xsd 
 	http://www.springframework.org/schema/context 
 	http://www.springframework.org/schema/context/spring-context.xsd">
-	
+
 	<context:annotation-config />
 
 
@@ -86,7 +86,7 @@
 		<property name="freeDelivery" value="true" />
 	</bean>
 
-	<bean id="menuItems" class="java.util.ArrayList">
+	<bean id="menuItemList" class="java.util.ArrayList">
 		<constructor-arg>
 			<list>
 				<ref bean="sandwich" />
@@ -103,10 +103,57 @@
 	<bean id="menuItemDaoCollectionImpl"
 		class="com.cognizant.truyum.dao.MenuItemDaoCollectionImpl">
 		<property name="menuItemList">
-			<ref bean="menuItems" />
+			<ref bean="menuItemList" />
 		</property>
 	</bean>
-	<bean id="userCarts" class="com.cognizant.truyum.dao.CartDaoCollectionImpl"></bean>
+
+	<bean id="menu1" class="java.util.ArrayList">
+		<constructor-arg>
+			<list>
+				
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<bean id="menu2" class="java.util.ArrayList">
+		<constructor-arg>
+			<list>
+				<ref bean="burger" />
+				<ref bean="pizza" />
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<bean id="cart1" class="com.cognizant.truyum.model.Cart">
+		<property name="newUserMenuList" ref="menu1" />
+		<property name="total" value="0" />
+	</bean>
+
+	<bean id="cart2" class="com.cognizant.truyum.model.Cart">
+		<property name="newUserMenuList" ref="menu2" />
+		<property name="total" value="278" />
+	</bean>
+
+	<bean id="Map" class="java.util.HashMap">
+		<constructor-arg>
+			<map>
+				<entry key="1" value-ref="cart1" />
+				<entry key="2" value-ref="cart2" />
+			</map>
+		</constructor-arg>
+	</bean>
+
+	<bean id="cartDaoCollectionImpl"
+		class="com.cognizant.truyum.dao.CartDaoCollectionImpl">
+		<property name="userCarts">
+			<ref bean="Map" />
+		</property>
+	</bean>
+
+	<bean id="cartService"
+		class="com.cognizant.truyum.service.CartService"></bean>
+
+
 
 
 </beans>

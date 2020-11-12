@@ -6,15 +6,20 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ImportResource;
+import org.springframework.stereotype.Component;
+
 import com.cognizant.truyum.model.MenuItem;
 import com.cognizant.truyum.util.DateUtil;
 
+@Component
+@ImportResource("classpath:spring-config.xml")
+
 public class MenuItemDaoCollectionImpl implements MenuItemDao {
+	@Autowired
 
-	private  List<MenuItem> menuItemList;
-
-	
-
+	private List<MenuItem> menuItemList;
 
 	public void setMenuItemList(List<MenuItem> menuItemList) {
 		this.menuItemList = menuItemList;
@@ -67,12 +72,13 @@ public class MenuItemDaoCollectionImpl implements MenuItemDao {
 
 	public MenuItem getMenuItem(long menuItemId) {
 		// TODO Auto-generated method stub
+		MenuItem a = null;
 		for (MenuItem obj : menuItemList) {
 			if (obj.getId() == menuItemId) {
-				return obj;
+				a = obj;
 			}
 		}
-		return null;
+		return a;
 
 	}
 }

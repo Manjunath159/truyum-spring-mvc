@@ -4,8 +4,29 @@ import java.util.List;
 
 public class Cart {
 
+	/**
+	 * 
+	 */
+	public Cart() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	private List<MenuItem> newUserMenuList;
 	private double total;
+	public List<MenuItem> getNewUserMenuList() {
+		return newUserMenuList;
+	}
+
+	public void setNewUserMenuList(List<MenuItem> newUserMenuList) {
+		this.newUserMenuList = newUserMenuList;
+	}
+
+	public double getTotal() {
+		return total;
+	}
+
+	
 
 	public Cart(List<MenuItem> newUserMenuList) {
 		super();
