@@ -45,7 +45,6 @@ public class MenuItemDaoSqlImpl implements MenuItemDao {
 			}
 			ps.clearParameters();
 			return lst;
-			
 
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();

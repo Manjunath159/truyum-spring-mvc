@@ -22,6 +22,8 @@ nav {
 li {
 	display: inline;
 }
+h2{
+color:green;}
 </style>
 
 
@@ -34,6 +36,10 @@ li {
 			<li><a href=" menu-item-list-admin.html">Menu</a></li>
 			<li><a href=" cart.html">cart</a></li>
 	</nav>
+	<c:set var="addedCart" scope="session" value="${addCartStatus}"/>
+			<c:if test="${addedCart == true}">
+				<h2>Item added to cart Successfully</h2>
+			</c:if>
 	<p>Menu Items</p>
 	<table>
 		<tr>

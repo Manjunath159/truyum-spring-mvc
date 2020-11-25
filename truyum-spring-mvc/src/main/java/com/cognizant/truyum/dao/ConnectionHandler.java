@@ -10,7 +10,8 @@ import java.util.Properties;
 
 public class ConnectionHandler {
 	static Connection getConnection() throws IOException, SQLException, ClassNotFoundException {
-		FileInputStream name = new FileInputStream("connection.properties");
+		FileInputStream name = new FileInputStream(
+				"D:\\eclipse-877830\\truyum-spring-mvc\\src\\main\\resources\\connection.properties");
 		Properties obj = new Properties();
 		obj.load(name);
 		Class.forName(obj.getProperty("driver"));

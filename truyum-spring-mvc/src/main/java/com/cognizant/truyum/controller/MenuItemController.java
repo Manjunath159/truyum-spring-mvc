@@ -24,7 +24,7 @@ public class MenuItemController {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(MenuItemController.class);
 
-	@GetMapping(value = "/show-menu-list-admin")
+	@GetMapping(value = "/show-menu-item-list-admin")
 	public String showMenuItemListAdmin(ModelMap model) throws ClassNotFoundException, IOException, SQLException {
 		LOGGER.info("Start");
 		List<MenuItem> menuItemListAdmin = menuItem.getMenuItemListAdmin();

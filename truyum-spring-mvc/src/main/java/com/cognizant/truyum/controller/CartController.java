@@ -12,6 +12,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.cognizant.truyum.dao.CartEmptyException;
 import com.cognizant.truyum.model.MenuItem;
 import com.cognizant.truyum.service.CartService;
 
@@ -32,6 +33,59 @@ public class CartController {
 		service.addCartItem(1, id);
 		model.put("addCartStatus",true);
 		LOGGER.info("end");
-		return "forward:/show-menu-list-customer";
+		return "show-menu-list-customer";
 	}
+	
+	@GetMapping(value = "/show-cart")
+    public String showCart(@RequestParam long userId, ModelMap model) throws IOException {
+        
+        LOGGER.info("Start");
+        System.out.println("user id is " + userId);
+        if(userId != 0) {
+            try {
+                List<MenuItem> cartItems = service.getAllCartItems(userId);
+                System.out.println(cartItems);
+                model.addAttribute("cartItems", cartItems);
+                model.addAttribute("userId", userId);
+                float total = 0f;
+                for(MenuItem item : cartItems) {
+                    total += item.getPrice();
+                }
+                model.addAttribute("total", total);
+                LOGGER.info("End");
+                return "cart";
+            } catch (CartEmptyException e) {
+                
+                LOGGER.info("End");
+                return "cart-empty";
+                
+            }
+        }else {
+            return "cart";
+        }
+    }
+	  @GetMapping(value = "/remove-cart")
+	    public String removeCart(@RequestParam long userId, @RequestParam long menuItemId, ModelMap model) throws IOException {
+	        
+	        service.removeCartItem(userId, menuItemId);
+
+	        List<MenuItem> cartItems;
+	        try {
+	            cartItems = service.getAllCartItems(userId);
+	            model.addAttribute("cartItems", cartItems);
+	            model.addAttribute("userId", userId);
+	            float total = 0f;
+	            for(MenuItem item : cartItems) {
+	                total += item.getPrice();
+	            }
+	            System.out.println(total);
+	            model.addAttribute("total", total);
+	        } catch (CartEmptyException e) {
+	            
+	        }
+	        LOGGER.info("End");
+	        return "cart";
+	    }
+	    
+	    
 }

@@ -13,7 +13,7 @@ import com.cognizant.truyum.dao.CartDao;
 import com.cognizant.truyum.dao.CartEmptyException;
 import com.cognizant.truyum.model.MenuItem;
 
-//@Service("cartService")
+@Service("cartService")
 //@ImportResource("classpath:spring-config.xml")
 
 public class CartService {
